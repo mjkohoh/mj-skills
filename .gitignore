@@ -1,0 +1,21 @@
+# Skill subdirectories (managed as nested repositories)
+dev-log-skill/
+req2prd-skill/
+vibecoding-skill-learning/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Secrets / local config
+.env
+.env.*
+
+# Logs
+*.log
+
+# Editor temp files
+*.swp
+*.swo
+*~
+
