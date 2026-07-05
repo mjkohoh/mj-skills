@@ -18,9 +18,30 @@ fi
 staged_files="$(git diff --staged --name-only)"
 sensitive_files=""
 
+is_env_template_file() {
+  local base="$1"
+
+  case "$base" in
+    .env.example|.env.sample|.env.template|.env.dist)
+      return 0
+      ;;
+    .env.*.example|.env.*.sample|.env.*.template|.env.*.dist)
+      return 0
+      ;;
+    *)
+      return 1
+      ;;
+  esac
+}
+
 while IFS= read -r file; do
   [ -n "$file" ] || continue
   base="$(basename "$file")"
+
+  if is_env_template_file "$base"; then
+    continue
+  fi
+
   case "$base" in
     .env|.env.*|*.pem|*.key|id_rsa|id_ed25519|credentials.json|secrets.*)
       sensitive_files="${sensitive_files}${file}"$'\n'
