@@ -1,7 +1,5 @@
 # Skill subdirectories (managed as nested repositories)
-dev-log-skill/
-req2prd-skill/
-vibecoding-skill-learning/
+private/
 
 # OS files
 .DS_Store
