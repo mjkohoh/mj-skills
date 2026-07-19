@@ -1,0 +1,7 @@
+interface:
+  display_name: "Complete Tickets"
+  short_description: "按依赖顺序自动调用 implement，直到所有 tickets 完成"
+  default_prompt: "使用 $complete-tickets 读取已批准的 Spec 和全部 tickets，按依赖顺序逐张调用 implement 并更新状态，直到全部完成。"
+
+policy:
+  allow_implicit_invocation: false
